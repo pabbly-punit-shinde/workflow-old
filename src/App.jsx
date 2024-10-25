@@ -20,8 +20,9 @@ import { initialNodes, initialEdges } from "./nodes-edges.js";
 const elk = new ELK();
 const elkOptions = {
   "elk.algorithm": "layered",
+  "elk.layered.spacing.nodeNodeNode": "50000", // Adjust the spacing between nodes
   "elk.layered.spacing.nodeNodeBetweenLayers": "100",
-  "elk.spacing.nodeNode": "80",
+  "elk.spacing.nodeNode": "150",
 };
 
 const getLayoutedElements = (nodes, edges, options = {}) => {
@@ -33,8 +34,8 @@ const getLayoutedElements = (nodes, edges, options = {}) => {
       ...node,
       targetPosition: isHorizontal ? "left" : "top",
       sourcePosition: isHorizontal ? "right" : "bottom",
-      width: 150,
-      height: 50,
+      width: 50,
+      height: 30,
     })),
     edges: edges,
   };
@@ -55,10 +56,15 @@ function LayoutFlow() {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const { fitView } = useReactFlow();
+  const [isHorizontal, setIsHorizontal] = React.useState(false); // Track layout direction
+  const [edgeType, setEdgeType] = React.useState("smoothstep"); // Track current edge type
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
+    (params) => {
+      const newEdge = { ...params, type: edgeType }; // Use the current edge type
+      setEdges((eds) => addEdge(newEdge, eds));
+    },
+    [edgeType] // Add edgeType to the dependency array
   );
 
   const onLayout = useCallback(
@@ -66,6 +72,9 @@ function LayoutFlow() {
       const opts = { "elk.direction": direction, ...elkOptions };
       const ns = useInitialNodes ? initialNodes : nodes;
       const es = useInitialNodes ? initialEdges : edges;
+
+      // Update the isHorizontal state based on layout direction
+      setIsHorizontal(direction === "RIGHT");
 
       getLayoutedElements(ns, es, opts).then(
         ({ nodes: layoutedNodes, edges: layoutedEdges }) => {
@@ -82,9 +91,15 @@ function LayoutFlow() {
     onLayout({ direction: "DOWN", useInitialNodes: true });
   }, []);
 
+  // Update edges when edge type changes
+  React.useEffect(() => {
+    const updatedEdges = edges.map((edge) => ({ ...edge, type: edgeType }));
+    setEdges(updatedEdges);
+  }, [edgeType]);
+
   // Define the custom node types
   const nodeTypes = {
-    custom: CustomNode,
+    custom: (props) => <CustomNode {...props} isHorizontal={isHorizontal} />, // Pass the layout direction to the custom node
   };
 
   return (
@@ -97,14 +112,22 @@ function LayoutFlow() {
         onEdgesChange={onEdgesChange}
         fitView
         nodeTypes={nodeTypes} // Pass custom node types here
+        draggable={true}
       >
         <Panel position="top-right">
           <button onClick={() => onLayout({ direction: "DOWN" })}>
-            vertical layout
+            Vertical Layout
           </button>
           <button onClick={() => onLayout({ direction: "RIGHT" })}>
-            horizontal layout
+            Horizontal Layout
           </button>
+          {/* Buttons to change edge type */}
+          <div>
+            <button onClick={() => setEdgeType("straight")}>Straight</button>
+            <button onClick={() => setEdgeType("step")}>Step</button>
+            <button onClick={() => setEdgeType("smoothstep")}>Smooth Step</button>
+            <button onClick={() => setEdgeType("bezier")}>Bezier</button>
+          </div>
         </Panel>
         <Background bgColor="#f3faf7" />
         <Controls />

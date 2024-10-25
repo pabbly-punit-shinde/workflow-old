@@ -24,7 +24,6 @@ export const initialNodes = [
   {
     id: "3",
     type: "custom",
-    position: { x: 250, y: 500 },
     data: {
       label: "Router (Pabbly)",
       subtext: "Split Into Routes",
@@ -125,15 +124,114 @@ export const initialNodes = [
 ];
 
 export const initialEdges = [
-  { id: "e12", source: "1", target: "2", type: "smoothstep" },
-  { id: "e13", source: "2", target: "3", type: "smoothstep" },
-  { id: "e22a", source: "3", target: "4", type: "smoothstep" },
-  { id: "e22b", source: "4", target: "5", type: "smoothstep" },
-  { id: "e36", source: "3", target: "6", type: "smoothstep" },
-  { id: "e67", source: "6", target: "7", type: "smoothstep" },
-  { id: "e78", source: "7", target: "8", type: "smoothstep" },
-  { id: "e89", source: "8", target: "9", type: "smoothstep" },
-  { id: "e910", source: "9", target: "10", type: "smoothstep" },
-  { id: "e911", source: "9", target: "11", type: "smoothstep" },
-  { id: "e712", source: "7", target: "12", type: "smoothstep" },
+  {
+    id: "e12",
+    source: "1",
+    target: "2",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e13",
+    source: "2",
+    target: "3",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e22a",
+    source: "3",
+    target: "4",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e22b",
+    source: "4",
+    target: "5",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e36",
+    source: "3",
+    target: "6",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e67",
+    source: "6",
+    target: "7",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e78",
+    source: "7",
+    target: "8",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e89",
+    source: "8",
+    target: "9",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e910",
+    source: "9",
+    target: "10",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e911",
+    source: "9",
+    target: "11",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
+  {
+    id: "e712",
+    source: "7",
+    target: "12",
+    type: "smoothstep",
+    style: {
+      strokeWidth: 3,
+      stroke: "#637381",
+    },
+  },
 ];

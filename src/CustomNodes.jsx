@@ -2,11 +2,18 @@ import React from "react";
 import { Handle } from "@xyflow/react"; // Import Handle from ReactFlow
 
 // Custom Node component
-const CustomNode = ({ data }) => {
+const CustomNode = ({ data, isHorizontal }) => {
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: isHorizontal ? "column" : "row",
+        alignItems: "center",
+      }}
+    >
       {/* Image node with source and target handles */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
         <img
           src={data.icon}
           alt={data.label}
@@ -16,47 +23,45 @@ const CustomNode = ({ data }) => {
             filter: "drop-shadow(0px 5px 6px rgb(0 0 0 / 0.25))",
           }}
         />
-        {/* Add source and target handles, positioned on the image */}
+        
+        {/* Add source and target handles, position dynamically */}
         <Handle
           type="source"
-          position="bottom" // Position the source handle at the bottom of the image
+          position={isHorizontal ? "right" : "bottom"} // Dynamically position based on layout direction
           style={{
             background: "transparent",
-            top: 40,
-            left: "50%",
-            transform: "translateX(-50%)",
+            top: isHorizontal ? "50%" : "90%", // Position the source handle at the bottom or center based on layout
+            left: isHorizontal ? "90%" : "50%", // Move to the right or center based on layout
+            transform: isHorizontal ? "translateY(-50%)" : "translateX(-50%)", // Adjust transform for vertical
             border: "none",
           }}
         />
         <Handle
           type="target"
-          position="top" // Position the target handle at the top of the image
+          position={isHorizontal ? "left" : "top"} // Dynamically position based on layout direction
           style={{
             background: "transparent",
-            top: 40,
-            left: "50%",
-            transform: "translateX(-50%)",
+            top: isHorizontal ? "50%" : 0, // Position the target handle at the top or center based on layout
+            left: isHorizontal ? "0" : "50%", // Move to the left or center based on layout
+            transform: isHorizontal ? "translateY(-50%)" : "translateX(-50%)", // Adjust transform for vertical
             border: "none",
           }}
         />
       </div>
 
-      {/* Label and subtext floating outside of the node */}
+      {/* Label and subtext position dynamically based on layout */}
       <div
         style={{
-          // backgroundColor:"red",
-          position: "absolute",
-          left: "75%", // Position to the right of the image
-          top: "50%",
-          transform: "translateY(-50%)", // Center vertically with the image
-          textAlign: "left",
-          pointerEvents: "none", // Make sure label and subtext don't interfere with node interaction
+          position: "relative",
+          textWrap:"nowrap",
+          marginTop: isHorizontal ? 10 : 0, // Add margin on top for horizontal layout
+          textAlign: isHorizontal ? "center" : "left", // Center text in horizontal layout
+          marginLeft: isHorizontal ? 0 : "10px", // For vertical layout, move to the right of the image
         }}
       >
         <div
           style={{
             fontWeight: "bold",
-            textWrap: "nowrap",
             fontFamily: "Public Sans",
             fontSize: 16,
             color: "#1C252E",
@@ -64,10 +69,8 @@ const CustomNode = ({ data }) => {
         >
           {data.label}
         </div>
-
         <div
           style={{
-            textWrap: "nowrap",
             fontFamily: "Public Sans",
             fontSize: 14,
             color: "#556370",
