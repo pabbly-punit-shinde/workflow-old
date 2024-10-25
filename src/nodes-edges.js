@@ -130,8 +130,8 @@ export const initialEdges = [
     target: "2",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -140,8 +140,8 @@ export const initialEdges = [
     target: "3",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -150,8 +150,8 @@ export const initialEdges = [
     target: "4",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -160,8 +160,8 @@ export const initialEdges = [
     target: "5",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -170,8 +170,8 @@ export const initialEdges = [
     target: "6",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -180,8 +180,8 @@ export const initialEdges = [
     target: "7",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -190,8 +190,8 @@ export const initialEdges = [
     target: "8",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -200,8 +200,8 @@ export const initialEdges = [
     target: "9",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -210,8 +210,8 @@ export const initialEdges = [
     target: "10",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -220,8 +220,8 @@ export const initialEdges = [
     target: "11",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
   {
@@ -230,8 +230,8 @@ export const initialEdges = [
     target: "12",
     type: "smoothstep",
     style: {
-      strokeWidth: 3,
-      stroke: "#637381",
+      strokeWidth: 2,
+      stroke: "#8095a8",
     },
   },
 ];

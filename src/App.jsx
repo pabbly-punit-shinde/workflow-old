@@ -116,16 +116,18 @@ function LayoutFlow() {
       >
         <Panel position="top-right">
           <button onClick={() => onLayout({ direction: "DOWN" })}>
-            Vertical Layout
+            Auto Align Vertically
           </button>
           <button onClick={() => onLayout({ direction: "RIGHT" })}>
-            Horizontal Layout
+            Auto Align Horizontally
           </button>
           {/* Buttons to change edge type */}
           <div>
             <button onClick={() => setEdgeType("straight")}>Straight</button>
             <button onClick={() => setEdgeType("step")}>Step</button>
-            <button onClick={() => setEdgeType("smoothstep")}>Smooth Step</button>
+            <button onClick={() => setEdgeType("smoothstep")}>
+              Smooth Step
+            </button>
             <button onClick={() => setEdgeType("bezier")}>Bezier</button>
           </div>
         </Panel>
