@@ -148,6 +148,8 @@ function LayoutFlow() {
             <h6>Select Edge Type</h6>
             <button onClick={() => setEdgeType("straight")}>Straight</button>
             <button onClick={() => setEdgeType("straight")}>Straight</button>
+            <button onClick={() => setEdgeType("straight")}>Straight</button>     
+                   <button onClick={() => setEdgeType("straight")}>Straight</button>
             <button onClick={() => setEdgeType("step")}>Step</button>
             <button onClick={() => setEdgeType("smoothstep")}>
               Smooth Step
