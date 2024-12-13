@@ -152,6 +152,7 @@ function LayoutFlow() {
               Smooth Step
             </button>
             <button onClick={() => setEdgeType("bezier")}>Bezier</button>
+            <button onClick={() => setEdgeType("bezier")}>Sourabh</button>
           </div>
         </Panel>
         <ControlButton />
